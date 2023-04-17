@@ -19,7 +19,7 @@ export default defineConfig(({ command }) => {
         minify: false,
         rollupOptions: {
           output: {
-            dir: '/src/',
+            dir: '/DEV004-social-network-La-Teteria-V2/',
           },
         },
       },
@@ -51,4 +51,4 @@ export default defineConfig(({ command }) => {
 //     };
 //   }
 //   return {};
-// });
+// });*/
