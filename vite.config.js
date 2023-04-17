@@ -19,7 +19,7 @@ export default defineConfig(({ command }) => {
         minify: false,
         rollupOptions: {
           output: {
-            dir: '/DEV004-social-network-La-Teteria-V2/',
+            dir: './DEV004-social-network-La-Teteria-V2/',
           },
         },
       },
