@@ -1,0 +1,155 @@
+
+/* modelo de caja*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.home__body{
+    /* background-color: green; */
+    background: url(./imagenes/fondos/mona-eendra-vC8wj_Kphak-unsplash1.jpg);/* RECORDA NO LLEVA CORCHES LA URL*/
+  
+
+    /* height: 950px;*/
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    /*background-size: cover;
+    position: relative; */
+}
+/* SECCION ARTICLE */
+.home__seccionArticulo {
+    width: 100%;
+    height: 850px;
+    /* left: 0%; */
+    /* right: 0%;
+    top: 0%;
+    bottom: 0%;  */
+    /* background: yellow; */
+    /* background: url(./imagenes/portada/Portada.jpg);/* RECORDA NO LLEVA CORCHES LA URL*/
+    /* background-size: 100%; */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+/* DIV1 */
+.home__div1{
+    width: 98%;
+    height: 600px;
+    left: 1%;
+    right: 1%;
+    top: 45px;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+
+
+    outline: 2px solid blue;
+}
+.home__div1_titulo{
+    width: 100%;
+    height: 12%;
+    font-family: 'Times New Roman', Times, serif;
+    /* padding-top: 15%;
+    text-align: center;
+    /* align-items: center; */
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    outline: 2px solid blue;
+}
+#imagenTE1{
+    background-image: url(./imagenes/fondos/te05.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */ /* me permite fijar la imagen y aunque se mueva la pagina la imagen se mantiene en su lugar */
+    
+
+
+    width: 100%;
+    height: 88%;
+    /* padding-top: 25%; */
+    /* position: relative;
+    top: -60px;
+    left: 70px; */
+    /* padding: 37px; */
+    outline: 2px solid violet;
+    overflow: hidden;  /*que esconda el lo que se ve si se desborda*/
+
+}
+/* DIV2 */
+.home__div2{
+    width: 98%;
+    height: 200px;
+    left: 1%;
+    right: 1%;
+    top: 45px;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+
+
+    outline: 2px solid red;
+}
+
+.botonRegistro, .botonLogin{
+    margin: 5%;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+
+    
+    /* position: relative; */
+    /* width: 55%; */
+    /* height: 15%; */
+    /* top: -20px; */
+    /* left: 30px; */
+   
+    /* background-image: 105deg; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    align-self: flex-start;
+}
+.botonLogin{
+    /* margin: 5%; */
+    /* width: 150px; */
+    /* height: 50px; */
+    /* position: relative; */
+    /* top: -20px; */
+    /* left: 150px; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    align-self: flex-start;
+}
+
+
+
+
+/* FOOTER */
+.home__footer{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    height: 50px;
+    outline: 2px solid violet;
+    justify-content: center;
+}
