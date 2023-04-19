@@ -2,11 +2,14 @@ import { onNavigate } from '../router/router';
 import { btnVolverHome, btnRegistro } from "../componentes/funciones";
 
 import { registrarUsuario  } from "../firebase/firebase-funcion";
+import { AuthErrorCodes, EmailAuthCredential } from 'firebase/auth';
+import { async } from 'regenerator-runtime';
 
 
 
 
 export const registro = () => {
+  console.log("cargando registro");
   
 
   /* *** DECLARACION DE VARIABLES *** */
@@ -27,18 +30,18 @@ export const registro = () => {
   titulo.classList.add('registro__titulo');
 
   /* ------ Creacion Input NOMBRE/APODO */
-  const inputApodo = document.createElement('input');
-  inputApodo.setAttribute('type','text');
-  inputApodo.setAttribute('id','input-Apodo');
-  inputApodo.classList.add('registro-inputs');
+  const inputUsuario = document.createElement('input');
+  inputUsuario.setAttribute('type','text');
+  inputUsuario.setAttribute('id','input-Usuario');
+  inputUsuario.classList.add('registro-inputs');
   
-  const inputApodoLabel = document.createElement('label');
-  inputApodoLabel.textContent='Apodo/Nombre';
-  inputApodoLabel.classList.add('registro-label', 'registro-label-apodo');
+  const inputUsuarioLabel = document.createElement('label');
+  inputUsuarioLabel.textContent='Usuario/Nombre';
+  inputUsuarioLabel.classList.add('registro-label', 'registro-label-usuario');
 
-  const inputApodoLabel2 = document.createElement('label');
-  inputApodoLabel2.textContent='*Solo texto';
-  inputApodoLabel2.classList.add('registro-label-indicaciones');
+  const inputUsuarioLabel2 = document.createElement('label');
+  inputUsuarioLabel2.textContent='*Solo texto';
+  inputUsuarioLabel2.classList.add('registro-label-indicaciones');
 
   // inputApodo.append(inputApodoLabel,inputApodoLabel2); ****NO ME PERMITE INCLUIRLOS JUNTOS NI CON APPEND O APPENDcHILD PREGUNTA A GENESIS
 
@@ -68,7 +71,7 @@ export const registro = () => {
   inputPasswordLabel.classList.add('registro-label');
 
   const inputPasswordLabel2 = document.createElement('label');
-  inputPasswordLabel2.textContent='*De 6-8 caracteres, 1 mayusc., 1 signo, Sin espacios';
+  inputPasswordLabel2.textContent='*De 6-10 caracteres(numeros y letras), 1 mayusc., 1 signo, Sin espacios';
   inputPasswordLabel2.classList.add('registro-label-indicaciones');
 
   /* ------ Creacion Input REPETICION DE PASSWORD */
@@ -90,62 +93,32 @@ export const registro = () => {
   botonVolverHome.classList.add('botonVolverHome');
 
  
- /* ------ Funcion para fijar la posicion del LABEL al rellenar el campo */
  
- 
-//  export let fijar=() => {
-//   // document.getElementsByClassName('registro-label');
-//   document.querySelectorAll('registro-label');
-
-//  for (let i = 0; i < fijar.length; i++) {
-//    fijar[i].addEventListener('keyup', function () {
-//      if (this.value.length >= 1) {
-//        this.nextElementSibling.classList.add('fijar');        
-//      } else {
-//        this.nextElementSibling.classList.remove('fijar');        
-//      }
-//    });
-//  }}
-
-// ó Esta funcion !
-//   let fijar=document.getElementsByClassName('registro-label');
-//   console.log(fijar);
-//    for (let i = 0; i < fijar.length; i++) {
-//      fijar[i].addEventListener('keyup', function () {
-//       console.log(fijar[i]);
-//        if (this.value.length >= 1) {
-//          this.nextElementSibling.classList.add('fijar');        
-//        } else {
-//          this.nextElementSibling.classList.remove('fijar');        
-//        }
-//      })
-//    };
-// let fijar1=fijar();
-//    addEventListener('keyup', function (fijar1) {
-    
-//    })
-
-
   // FUNCIONES AddEventListener 
   
-  botonRegistrandose.addEventListener('click', () => {
-    // llama funcion navigate y pasa string con la ruta
-    // onNavigate('/muro');
-    const ingresoMail = inputEmail.value;
-    // console.log(ingresoMail);
+botonRegistrandose.addEventListener('click', async () => {
+  console.log("boton registro");
+  // llama funcion navigate y pasa string con la ruta
+  // onNavigate('/muro');
+  const ingresoMail = inputEmail.value;
+  // console.log(ingresoMail);
 
-    const ingresoClaveMail = inputPassword.value;
+  const ingresoClaveMail = inputPassword.value;
 
-    datosValidados();
-    if (datosValidados() === true){
-      registrarUsuario(ingresoMail,ingresoClaveMail)
-      //console.log(registrarUsuario(ingresoMail,ingresoClaveMail));
-      onNavigate('/muro');
+  validarRegistro();
 
+  
+  try {
+    if (validarRegistro() === true){ 
+      // console.log(error);
 
-    }
-    
-  });
+     registrarUsuario(ingresoMail,ingresoClaveMail)
+     onNavigate('/muro');
+    };
+  } catch (error) { 
+    console.log('hubo un error llamar registro', error);
+  }      
+});
 
 
   botonVolverHome.addEventListener('click', () => {
@@ -153,14 +126,10 @@ export const registro = () => {
     onNavigate('/');
   });
 
-  // let fijar1 = fijar();
   // suman elementos a contenedor madre
   // section.append(inputApodo/*,inputApodoLabel*/,inputEmail,inputEmailLabel, inputPassword,inputPasswordLabel, inputPasswordRepeticion,inputPasswordRepeticionLabel, botonRegistrandose, botonVolverHome);
 
-   section.append(titulo, inputApodoLabel,inputApodo,inputApodoLabel2, inputEmailLabel,inputEmail,inputEmailLabel2,  inputPasswordLabel,inputPassword,inputPasswordLabel2, inputPasswordRepeticionLabel,inputPasswordRepeticion, botonRegistrandose, botonVolverHome);
-
-
-
+   section.append(titulo, inputUsuarioLabel,inputUsuario,inputUsuarioLabel2, inputEmailLabel,inputEmail,inputEmailLabel2,  inputPasswordLabel,inputPassword,inputPasswordLabel2, inputPasswordRepeticionLabel,inputPasswordRepeticion, botonRegistrandose, botonVolverHome);
 
   // retorna contenedor madre
   return section;
@@ -169,24 +138,40 @@ export const registro = () => {
 /* VERIFICAR en DATOS VALIDADOS
 -APODO = SOLO TEXTO
 -MAIL  = SOLO TEXTO,NUMEROS,GUIONES,ARROBA,PUNTO
--CLAVE = No puede tener espacios, De 6-8 caracteres,1 mayuscula,1 signo
+-CLAVE = No puede tener espacios, De 6-10 caracteres,1 mayuscula,1 signo
 */
-function datosValidados() {
-  const ingresoApodo = document.getElementById('input-Apodo').value;
-  const ingresoMail = document.getElementById('input-Email').value;
-  // console.log(ingresoMail);
-  const ingresoClave = document.getElementById('input-Password').value;
-  // console.log(ingresoClaveMail);
-  const ingresoClaveRepeticion = document.getElementById('input-Password-Repeticion').value;
+function validarRegistro() {
+  const usuario = document.getElementById('input-Usuario').value;
+  // console.log(ingresoApodo);
 
-  if (ingresoApodo===''|| ingresoMail ===''|| ingresoClave===''||ingresoClaveRepeticion==='') {
+  const mail = document.getElementById('input-Email').value;
+
+  const clave = document.getElementById('input-Password').value;
+  // console.log(ingresoClaveMail);
+  const claveRepeticion = document.getElementById('input-Password-Repeticion').value;
+  const usuarioValid = /[0-9]/g.test(usuario);
+  const validarCorreo = /^[a-zA-Z0-9.!#$%&'*+/=?^_-`{|}~]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/g.test(mail);
+  const validarClave = /^(?=.*[A-Z])(?=.*[!@#$%^&*()-+=?/])(?=.*[0-9])(?!.*\s).{6,10}$/g.test(clave);
+ 
+  //TODO:¨mejorar aspecto visual
+  if (usuarioValid === true) {
+    alert('El Usuario solo debe contener letras.');
+    return false;
+  }
+
+  if (usuario===''|| mail ===''|| clave===''||claveRepeticion==='') {
     alert('Campos vacios, favor revisar.');
     return false;
   }
 
-  // if (ingresoClaveMail ==='') {
-  //   alert('Ingrese Clave.');
-  //   return false;
-  // }
+  if (validarCorreo === false) {
+    alert("Email no es valido.");
+    return false;
+  }
+
+  if (validarClave === false) {
+    return alert('Las claves no coinciden.');
+  }
+
   return true;
 }

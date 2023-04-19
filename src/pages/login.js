@@ -10,7 +10,7 @@ export const login = () => {
     inputEmail.setAttribute('type', 'email');
     inputPassword.setAttribute('type', 'password');
     buttonRegister.textContent = 'Registrate';
-    buttonHome.textContent = 'Volver al home login';
+    buttonHome.textContent = 'Volver al home login 2';
     buttonRegister.addEventListener('click', () => {
       // llama funcion navigate y pasa string con la ruta
       onNavigate('/muro');
