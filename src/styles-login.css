@@ -6,14 +6,14 @@
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
 }
-.registro__todo-body{
+.login__todo-body{
     margin: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh ;
 }
 
-.registro__body{
+.login__body{
     /* background-color: green; */
     background: url(./imagenes/fondos/mona-eendra-vC8wj_Kphak-unsplash1.jpg);/* RECORDA NO LLEVA CORCHES LA URL*/
     /* height: 950px;*/
@@ -24,21 +24,23 @@
 }
 
 /* SECCION HEADER */
-.registro__header{
-    padding: 15px;
+.login__header{
+    padding-top: 20%;
+    padding-bottom: 0.5%;
+    /* padding: 15px; */
     text-align: center;
     /* outline: 2px solid green; */
 }
-.registro__header::after{ /*before, se agrega el contenido despues de.. */
+.login__header::after{ /*before, se agrega el contenido despues de.. */
     content: "LA TETERIA";/*agrega texto desde el css al html*/   
     font-family: 'Times New Roman', Times, serif;
     font-size: 24px;
     font-weight: bold;
-    color: red;
+    color: green;
 }
 
 /* SECCION CONTAINER */
-.registro-container{
+.login-container{
     width: fit-content;
     height: fit-content;
     top: 40%;
@@ -63,11 +65,11 @@
 }
 
 
-.registro__titulo{ /* LA TETERIA */
+.login__titulo{ /* LA TETERIA */
     margin-bottom: 20px;
     text-align: center;
 }
-.registro-inputs{/*Aplica a todos los inputs*/ 
+.login-inputs{/*Aplica a todos los inputs*/ 
     width: 250px;
     margin-top: -3px;
     margin-bottom: -4px;/*espacio entre las celdas*/
@@ -85,13 +87,13 @@
     font-size: 15px;
 }
 
-.registro-inputs:focus{
+.login-inputs:focus{
     border: 2px solid black;
 }
 
 
 /* */
-.registro-label{/*Aplica a todos los label*/ 
+.login-label{/*Aplica a todos los label*/ 
     margin-bottom: 5px;
     /* display:flexbox; */
     /* margin-top: 4px; */
@@ -99,7 +101,7 @@
     font-family: Arial,Helvetica,sans-serif;
     /* margin-top: 10px;/*la posicion del label dentro del campo del input  */
 }
-.registro-label-indicaciones{/*Aplica a todos los label-indicaciones*/ 
+.login-label-indicaciones{/*Aplica a todos los label-indicaciones*/ 
     margin-top: 4px;
     margin-bottom: 14px;/*la posicion del label bajo el campo del input*/
     width: 250px;
@@ -112,14 +114,16 @@
     font-size: 10px;
     color: red;
 }
-.botonRegistrandose,.botonVolverHome{
+.botonLogin-login,.botonVolverHome{
     width: 100%;
     font-weight: bold;
     cursor: pointer;
 }
 
-.botonRegistrandose{
-    margin-top: 9%;
+.botonLogin-login{
+    margin-top: 1%;
+    
+    /* margin-top: 9%; */
     font-size: 15px;
     /* cursor: progress; */
 }
@@ -128,7 +132,67 @@
     margin-top: 6%;
 }
 
+/* **** */
 
+/* .login__divGoogle{
+    width: 98%;
+    height: 31px;
+    left: 1%;
+    right: 1%;
+    border-top: 44px;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    outline: 2px solid blue;
+    
+} */
+
+/* #google{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    /* padding-top: 4%; */
+    /* display: flex; */
+    /* background: url(./imagenes/btn-google-pressed-web2x.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;  que esconda el lo que se ve si se desborda */
+
+/*    outline: 2px solid violet;
+} */
+
+.login-botonGoogle{
+    background: url(./imagenes/btn-google-pressed-web2x.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height:30px;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    
+
+outline: 2px solid red;
+    
+}
+.login-botonFacebook{
+    background: url(./imagenes/logoFacebook.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height:30px;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    
+
+outline: 2px solid red;
+    
+}
 
 
 
@@ -137,7 +201,7 @@
 /*Nota2 : Solo funciona bien cuando hay poco contenido dentro de la pagina, al la pagina ser larga debo aplicar otra forma */
 /*Nota3 : ver este video explicativo https://www.youtube.com/watch?v=PSD5pFi6bx4*/
 /*Nota4 : aplique solucion ultima del video, cree una clase para el body(todo-body) y luego solo agrege margin-top:auto, esto me dejo el body abajo.*/
-.registro__footer{
+.login__footer{
     font-weight: bold;
     display: flex;
     align-items: center;
