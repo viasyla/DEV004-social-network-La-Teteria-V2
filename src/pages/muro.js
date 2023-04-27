@@ -56,13 +56,18 @@ obtenerPost((querySnapshot) => {
 const articlePosts = document.createElement('article')
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
+      
       const p = document.createElement('p');
       p.classList.add('clase-p');
+
+      const pFecha = document.createElement('p');
+      p.classList.add('clase-pFecha');
+
       //crear clase para dar estilo a p
       p.textContent = doc.data().mensaje;
-      // p.textContent = doc.data().fecha;
+      pFecha.textContent = doc.data().fecha;
 
-      articlePosts.append(p);
+      articlePosts.append(p,pFecha);
       section.append(articlePosts);
   })
 })

@@ -2,10 +2,9 @@ import { auth } from "./firebase.js";
 import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "firebase/auth";
 import { onNavigate } from "../router/router.js";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { collection, addDoc, getFirestore, Timestamp } from "firebase/firestore";
 import { async } from "regenerator-runtime";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
 
 // /* ------ */
 /* ------VERSION ORIGINAL DE LA EXPORTACION CREATE.USER */
@@ -170,15 +169,23 @@ export const exit = () => {
 }
   
 /* ******** CREAR POST DE USUARIO MURO *********** */
+const fechaActual = new Date();
+const marcaTiempo = Timestamp.fromDate(fechaActual);
+
+
 export const crearPost = async function (texto) {
   // Add a new document with a generated id.
   const docRef = await addDoc(collection(getFirestore(), "publicaciones"), {
     mensaje : texto,
     mail_usuario : getAuth().currentUser.email,
-    // fecha : date
+    fecha : marcaTiempo,
 
-  });
-  console.log("Document written with ID: ", docRef.id);
+  }).then(() =>{
+    console.log('documento guardado exitosamente' );
+  }).catch((error) => {
+    console.error('Error al guardar el documento', error);
+  })
+  // console.log("Document written with ID: ", docRef.id);
 }
 
 import {  query, onSnapshot } from "firebase/firestore";
