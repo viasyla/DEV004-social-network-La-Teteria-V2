@@ -1,5 +1,5 @@
 import { onNavigate } from '../router/router';
-import { btnLogout} from '../componentes/funciones.js';
+import { btnLogout } from '../componentes/funciones.js';
 import { auth } from '../firebase/firebase';
 import { crearPost, exit, obtenerPost } from '../firebase/firebase-funcion.js';
 
@@ -17,12 +17,12 @@ export const wall = () => {
   const section = document.createElement('section');
   section.classList.add('muro-section');
 
-  const div1 = document.createElement('div');
-  div1.classList.add('div1-cerrarSesion');  
+  const divCerrarSesion = document.createElement('div');
+  divCerrarSesion.classList.add('div1-cerrarSesion');  
   /* ------ Llamada Boton Cerrar sesion/Logout */
   const botonLogout = btnLogout() ;
   botonLogout.classList.add('botonLogout-muro');  
-  div1.append(botonLogout);
+  divCerrarSesion.append(botonLogout);
 
   // const tituloT = document.createElement('h1');
   // // modifica propiedades de los elemento
@@ -30,22 +30,26 @@ export const wall = () => {
 
   // tituloT.textContent = 'LA TETERIA';
 
+  /* ------ DIV SECCION PUBLICACION */
+  const divPublicacion = document.createElement('div');
+  divPublicacion.classList.add('div2-Publicacion');  
 
   const Comentario = document.createElement('textarea');
   Comentario.classList.add('input-comentarios');
   Comentario.setAttribute('placeholder','texto de tu comentario');
 
-  const botonGuardar = document.createElement('button');
-  botonGuardar.textContent='Guardar post';
+  const botonEnviarPost = document.createElement('button');
+  botonEnviarPost.textContent='Enviar';
+// const botonEnviarPost = btnGuardarPost();
+// botonEnviarPost.textContent='Enviar';//guardar y enviar post en Muro
 
-
-  botonGuardar.addEventListener('click', ()=>{
+  botonEnviarPost.addEventListener('click', ()=>{
     crearPost(Comentario.value).then (()=>{
       console.log('guardado en sistema');
     }) 
     // console.log('textarea'+ textarea.value);
   }) 
-
+divPublicacion.append(Comentario,botonEnviarPost)
 // const array=obtenerPost();
 // console.log( array);
 
@@ -83,7 +87,7 @@ botonLogout.addEventListener('click',e =>{
 })
 
 
-section.append(div1,/*tituloT,*/ Comentario,botonGuardar)
+section.append(divCerrarSesion,divPublicacion/*tituloT, Comentario,botonEnviarPost*/)
 
     // retorna el elemento
     return section;

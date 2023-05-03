@@ -31,6 +31,10 @@ export const btnFacebook =() =>{
   const botonFacebook = document.createElement('button');
   return botonFacebook;
 }
+export  const btnGuardarPost=() =>{
+  const botonGuardar = document.createElement('button');
+  // botonGuardar.textContent='Enviar';//guardar y enviar post en Muro
+} 
 
 /* ****************************************** */
 
