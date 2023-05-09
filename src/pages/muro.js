@@ -34,10 +34,43 @@ export const wall = () => {
   const divPublicacion = document.createElement('div');
   divPublicacion.classList.add('div2-Publicacion');  
 
-  const Comentario = document.createElement('textarea');
-  Comentario.classList.add('input-comentarios');
+  let Comentario = document.createElement('textarea');
+  Comentario.classList.add('input-comentarios','small-textarea');
   Comentario.setAttribute('placeholder','texto de tu comentario');
 
+  const botonBorrarComentario = document.createElement('img');
+  botonBorrarComentario.classList.add('borrar-comentario');
+  botonBorrarComentario.src = './imagenes/basurero.png';
+
+ 
+  
+  let i=0;
+  Comentario.addEventListener('keyup',(e)=>{
+    console.log('largo : ',Comentario.textLength);
+    const tecla = (document.all) ? e.keyCode : e.which;
+  // if (tecla==13) 
+  // let i = i+1;
+  // alert ('Has pulsado enter :  '+i);
+   
+    if (tecla==13) {
+      console.log('estoy dentro del if tecla 13');
+      i=i+1;
+      console.log('valor de I : ',i);
+     // console.log('ya sali del while');
+     // for (let index = 0; index <3; index++) {
+     //   console.log('valor de I : '+index);
+     //   alert ('Has pulsado enter :  ',index);
+     // }
+     }//cierre del if =13 enter
+     if (i>=2) {
+       Comentario.classList.add('medium-textarea');
+     }
+}) //cierre del key-up
+// function BorrarComentario(){
+//   // const botonborrarComentario= Comentario 
+// }
+
+   
   const botonEnviarPost = document.createElement('button');
   botonEnviarPost.textContent='Enviar';
 // const botonEnviarPost = btnGuardarPost();
@@ -46,10 +79,17 @@ export const wall = () => {
   botonEnviarPost.addEventListener('click', ()=>{
     crearPost(Comentario.value).then (()=>{
       console.log('guardado en sistema');
+      console.log('valor del i : ',i);
+      i=0;//limpia el valor del contador de enter
+      console.log('valor del i despues: ',i);
+    // section.removeChild(section.lastElementChild);
+      
+      // console.log('largo : ',Comentario.textLength);
     }) 
+   
     // console.log('textarea'+ textarea.value);
-  }) 
-divPublicacion.append(Comentario,botonEnviarPost)
+  })
+divPublicacion.append(Comentario,botonBorrarComentario,botonEnviarPost)
 // const array=obtenerPost();
 // console.log( array);
 
@@ -57,7 +97,13 @@ divPublicacion.append(Comentario,botonEnviarPost)
 //   console.log(post);
 // })
 obtenerPost((querySnapshot) => {
+  const existePost=document.getElementById('posts');
+  if (existePost) {
+    existePost.remove();
+  }
 const articlePosts = document.createElement('article')
+articlePosts.id='posts';
+    //  articlePosts.innerHTML='';
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
       

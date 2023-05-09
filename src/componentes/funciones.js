@@ -105,3 +105,9 @@ export function validarClave(clave) {
 //   console.log('Funciones.js : regular2  ',expresionRegular2 );
 //   return expresionRegular2.test(clave);
 // }
+
+//--------CREAR FUNCION DE FECHA
+export function fecha(pfecha) {
+  let fecha = pfecha
+}
+
