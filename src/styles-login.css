@@ -19,6 +19,7 @@
     /* height: 950px;*/
     /* background-position: center; */
     background-repeat: no-repeat;
+    background-size: cover;
     /*background-size: cover;
     position: relative; */
 }
@@ -91,12 +92,9 @@
     border: 2px solid black;
 }
 
-
 /* */
 .login-label{/*Aplica a todos los label*/ 
     margin-bottom: 5px;
-    /* display:flexbox; */
-    /* margin-top: 4px; */
     width: 250px;
     font-family: Arial,Helvetica,sans-serif;
     /* margin-top: 10px;/*la posicion del label dentro del campo del input  */
@@ -115,86 +113,47 @@
     color: red;
 }
 .botonLogin-login,.botonVolverHome{
-    width: 100%;
     font-weight: bold;
-    cursor: pointer;
-}
-
-.botonLogin-login{
-    margin-top: 1%;
-    
-    /* margin-top: 9%; */
     font-size: 15px;
-    /* cursor: progress; */
 }
-
-.botonVolverHome{
-    margin-top: 6%;
-}
-
-/* **** */
-
-/* .login__divGoogle{
-    width: 98%;
-    height: 31px;
-    left: 1%;
-    right: 1%;
-    border-top: 44px;
-    position:relative;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: space-between;
-    align-items: center;
-    outline: 2px solid blue;
-    
-} */
-
-/* #google{
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    /* padding-top: 4%; */
-    /* display: flex; */
-    /* background: url(./imagenes/btn-google-pressed-web2x.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    overflow: hidden;  que esconda el lo que se ve si se desborda */
-
-/*    outline: 2px solid violet;
-} */
 
 .login-botonGoogle{
-    background: url(./imagenes/btn-google-pressed-web2x.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    width: 100%;
-    height:30px;
-    padding: 0;
-    border: 0;
-    cursor: pointer;
-    
-
-outline: 2px solid red;
-    
+    background: url(./imagenes/version-marco1.jpeg);
+    background-size: 220px 36px;
+    background-position-x: right;
+ /* outline: 2px solid red; */
 }
 .login-botonFacebook{
     background: url(./imagenes/logoFacebook.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    width: 100%;
-    height:30px;
-    padding: 0;
-    border: 0;
+    background-size: 176px 36px;
+    background-position-x: center;
+   /* outline: 2px solid yellow; */
+}
+.botonLogin-login,.botonVolverHome,.login-botonFacebook,.login-botonGoogle
+{
+    box-shadow: -3px 4px 9px 0px rgba(0,0,0,0.5);
+    height: 23px;
+    width: 85%;
     cursor: pointer;
-    
-
-outline: 2px solid red;
-    
+    margin-top: 0px;
+    margin-bottom: 16px;
+    margin-left: 20px;
 }
 
+.login-botonGoogle,.login-botonFacebook{
+    background-repeat: no-repeat;
+    background-position-y: center;
+    padding: 0%;
+    border: 0;
+}
+.separador-sesiones-disponibles{
+    width: 85%;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    margin-left: 20px;
+    color: black;
 
+}
 
 /* FOOTER */
 /*Nota : para dejar el footer siempre abajo debe dejarlo en position absoluta y botom 0 */

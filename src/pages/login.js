@@ -2,6 +2,7 @@ import { onNavigate } from '../router/router';
 import { validarEmail,validarClave,btnLogin,btnVolverHome,btnGoogle,btnFacebook } from '../componentes/funciones.js';
 
 import { ValidarIngresoUsuario,validarConGoogle  } from "../firebase/firebase-funcion";
+import { documentId } from 'firebase/firestore';
 
 
 
@@ -76,6 +77,12 @@ export const login = () => {
   // imagenGoogle.setAttribute('id','google');
   // imagenGoogle.src = './imagenes/btn-google-pressed-web2x.png';
 
+const separador = document.createElement('p');
+separador.classList.add('separador-sesiones-disponibles');
+separador.textContent = ('------------ Ó Inicia con ----------');
+
+
+
   /* ------ Boton Iniciar con Google */
 
 const botonGoogle = btnGoogle();
@@ -129,7 +136,7 @@ botonGoogle.addEventListener('click',() => {
   // suman elementos a contenedor madre
   // section.append(inputApodo/*,inputApodoLabel*/,inputEmail,inputEmailLabel, inputPassword,inputPasswordLabel, inputPasswordRepeticion,inputPasswordRepeticionLabel, botonRegistrandose, botonVolverHome);
 
-   section.append( titulo,inputEmailLabel,inputPasswordLabel,botonLogin,botonGoogle, botonFacebook/*divGoogle,/*imagenGoogle*/,botonVolverHome );
+   section.append( titulo,inputEmailLabel,inputPasswordLabel,botonLogin,separador,botonGoogle, botonFacebook/*divGoogle,/*imagenGoogle*/,botonVolverHome );
 
   // retorna contenedor madre
   return section;

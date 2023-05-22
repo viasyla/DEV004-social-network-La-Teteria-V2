@@ -102,7 +102,7 @@ export const registro = () => {
 
   /* ------ Llamada boton Volver al Home */
   const botonVolverHome = btnVolverHome();
-  botonVolverHome.classList.add('botonVolverHome');
+  botonVolverHome.classList.add('botonVolverHome1');
 
  
  

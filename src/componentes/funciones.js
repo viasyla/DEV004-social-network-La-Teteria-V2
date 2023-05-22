@@ -107,7 +107,24 @@ export function validarClave(clave) {
 // }
 
 //--------CREAR FUNCION DE FECHA
-export function fecha(pfecha) {
-  let fecha = pfecha
+export function mifecha(pfecha) {
+  // let fecha = pfecha
+
+  // Supongamos que tenemos un timestamp en milisegundos
+// const timestamp = 1620632400000;
+
+// Creamos un nuevo objeto Date utilizando el timestamp
+const fecha = new Date(pfecha);
+
+// Obtenemos las partes de la hora
+const horas = fecha.getHours();
+const minutos = fecha.getMinutes();
+const segundos = fecha.getSeconds();
+
+// Puedes ajustar el formato de salida como desees
+const horaFormateada = `${horas}:${minutos}:${segundos}`;
+
+console.log(horaFormateada); // Salida: "12:0:0"
+
 }
 
