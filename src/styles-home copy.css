@@ -1,0 +1,253 @@
+
+/* modelo de caja*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.home__body{
+    background: url(./imagenes/fondos/fondoSinFlores.jpg);/* RECORDA NO LLEVA CORCHES LA URL*/
+    /* width: 100%; */
+    height: 100%;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-size: 100% 75%;
+    outline: 2px solid violet;
+
+}
+
+/* SECCION HEADER */
+.home__header{
+    padding: 15px;
+    text-align: center;
+    /* outline: 2px solid green; */
+}
+.home__header::after{ /*before, se agrega el contenido despues de.. */
+    content: "LA TETERIA";/*agrega texto desde el css al html*/   
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: blue;
+}
+
+/* SECCION ARTICLE */
+.home__seccionArticulo {
+    width: 100%;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    outline: 2px solid black;
+}
+
+/* DIV1 */
+.home__div1{
+    width: 98%;
+    height: 350px;
+    left: 1%;
+    right: 1%;
+    top: 25px;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    outline: 2px solid blue;
+    row-gap: 30px;
+}
+/* .home__div1_titulo{
+    width: 100%;
+    height: 12%;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    outline: 12px solid red;
+} */
+#imagenTE1{
+    background-image: url(./imagenes/fondos/te05.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */ /* me permite fijar la imagen y aunque se mueva la pagina la imagen se mantiene en su lugar */
+    width: 250px;
+    height: 98%;
+    /* outline: 2px solid violet; */
+    overflow: hidden;  /*que esconda el lo que se ve si se desborda*/
+    
+
+}
+/* DIV2 */
+.home__div2{
+    width: 34%;
+    height: 50px;
+    left: 33%;
+    right: 35%;
+    top: 30px;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
+    outline: 2px solid red;
+}
+
+.botonRegistro, .botonLogin{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 120px;
+    height: 30px;
+    /* font-size: 13px; */
+    font-weight:14 bold;
+    align-self: flex-start;
+}
+/* .botonLogin{
+    align-self: flex-start;
+} */
+
+
+
+
+/* FOOTER */
+.home__footer{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    height: 220px;
+    /* outline: 8px solid violet; */
+    justify-content: flex-end;
+    background: url(./imagenes/fondos/fondoFlores.jpg);
+    background-size: 600px 220px;
+    background-repeat: repeat-x;
+    /* height: 50%; */
+}
+
+
+
+/* *************************************************************  */
+/* *************************************************************  */
+@media screen and (max-width: 412px) {
+    
+/* modelo de caja*/
+/* .home__body{ */
+    /* background-color: green; */
+    /*background: url(./imagenes/fondos/mona-eendra-vC8wj_Kphak-unsplash1.jpg);/* RECORDA NO LLEVA CORCHES LA URL*/
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* outline: 2px solid green; */
+
+/* } */
+
+/* SECCION HEADER */
+/* .home__header{
+    padding: 15px;
+    text-align: center;
+    outline: 2px solid green;
+}
+.home__header::after{ /*before, se agrega el contenido despues de.. */
+ /*   content: "LA TETERIA";/*agrega texto desde el css al html*/   
+ /*   font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: blue;
+} */
+
+/* SECCION ARTICLE */
+.home__seccionArticulo {
+    /* width: 100%; */
+    height: 805px;
+    /* display: flex;
+    flex-direction: column; */
+    border: 1px solid red;
+}
+
+/* DIV1 */
+.home__div1 {
+    /* width: 98%; */
+    height:500px;
+    /* left: 1%; */
+    /* right: 1%; */
+    /* top: 45px; */
+    /* position: relative; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    outline: 2px solid yellow;
+    flex-wrap: wrap;
+}
+/* .home__div1_titulo{ */
+    /* width: 100%; */
+    /* height: 12%;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    outline: 2px solid blue;
+} */
+#imagenTE1{
+    /* background-image: url(./imagenes/fondos/te05.png); */
+    background-size: 99% 100%;
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */ /* me permite fijar la imagen y aunque se mueva la pagina la imagen se mantiene en su lugar */
+    width: 100%;
+    height: 100%;
+    outline: 2px solid violet;
+    /*overflow: hidden;  /*que esconda el lo que se ve si se desborda*/
+  }
+/* DIV2 */
+.home__div2{
+    /* width: 98%; */
+    height: 90px;
+    /* left: 1%; */
+    /* right: 1%; */
+    top: 110px;
+    /* position:relative; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    /* align-content: space-between; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    outline: 2px solid red;
+}
+
+/* .botonRegistro, .botonLogin{ */
+    /* margin: 5%; */
+    /* width: 150px; */
+    /* height: 50px; */
+    /* font-size: 18px; */
+    /* font-weight: bold; */
+    /* align-self: flex-start; */
+/* } */
+/* .botonLogin{ */
+    /* align-self: flex-start; */
+/* } */
+
+
+
+
+/* FOOTER */
+/* .home__footer{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    height: 50px;
+    outline: 2px solid violet;
+    justify-content: center;
+} */
+}
